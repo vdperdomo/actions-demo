@@ -49,6 +49,16 @@
           removeInterceptor(actionName, callback)
           <br><br><br>
 
+          <br><br><br>
+        ***call: runs the action and all associated interceptors. If any of the interceptors fails or is rejected, the action is not executed.
+        <br><br>
+            @param {string} actionName - action name<br>
+            @param {Object} params - extra params
+            <br><br>
+               call(actionName, params)
+
+                <br><br><br>
+
       </p>
       <button id="add-more-comments-button">
         Add more comments
