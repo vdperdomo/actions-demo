@@ -9,10 +9,46 @@
   <body style="margin: 50px; display: flex; justify-content: center;">
     <div style="width: 50%; padding: 50px;">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-        quisquam, odio labore explicabo ullam quo dolores maxime repellendus
-        illum perferendis, modi excepturi cum aperiam, quaerat nostrum ut
-        incidunt quas? Perferendis!
+        Methods to use: <br><br><br>
+        ***register: To register a new action. (will not be exposed to the customer)
+        <br><br>
+             @param {string} actionName - action name<br>
+             @param {function | Object} action - function to trigger or action object
+            <br><br>
+                register(actionName, action)
+
+                <br><br><br>
+
+        ***addInterceptor: To register an interceptor for an action (will be exposed to the customer).
+        <br><br>
+           @param {string} actionName - Action name<br>
+           @param {function} callback - Interceptor method <br>
+           @param {Boolean} once - option to trigger the interceptor just one time<br>
+          <br><br>
+            addInterceptor(actionName, callback, once)
+            <br><br>
+            The callback is an async method. Within it, it should make the call to continue() 
+            in case its business logic allows to continue with the workflow. Otherwise it should call 
+            to intercept(). If it doesn't, exist a timeout mecanish that returns an error after 5000ms
+   
+
+            <br><br><br>
+        ***remove: To remove an existing action
+        <br><br>
+         @param {string} actionName - action name
+        <br><br>
+            remove(actionName) 
+
+                   
+            <br><br><br>
+        ***removeInterceptor: To remove an interceptor for an especific action
+        <br><br>
+         @param {string} actionName - action name<br>
+         @param {function} callback - Interceptor method to remove
+        <br><br>
+          removeInterceptor(actionName, callback)
+          <br><br><br>
+
       </p>
       <button id="add-more-comments-button">
         Add more comments

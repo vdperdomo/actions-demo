@@ -68,7 +68,7 @@ var testInterceptor = async (context) => {
         context.continue(); // intentional second call to prove nothing odd happens
     }, 1000);
 };
-actions.intercept("comments.add_more_comments", testInterceptor);
+actions.addInterceptor("comments.add_more_comments", testInterceptor);
 
 `
     var el = document.getElementById('scriptContent');

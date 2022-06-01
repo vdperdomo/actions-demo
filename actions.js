@@ -53,7 +53,7 @@ class Actions {
      *
      *  @param {string} actionName - action name
      */
-    removeAction(actionName) {
+    remove(actionName) {
         this.list.delete(actionName);
     }
 
@@ -76,7 +76,7 @@ class Actions {
      *  @param {Boolean} once - option to trigger the interceptor just one time
      */
 
-    intercept(actionName, callback, once) {
+    addInterceptor(actionName, callback, once) {
         const action = this.list.get(actionName) || this.setDefaultDetails(actionName);
         action.interceptors.push({
             callback,
